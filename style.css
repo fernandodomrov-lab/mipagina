@@ -1,0 +1,247 @@
+/* ================================
+   style.css — Catarro-web
+   ================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* === Variables de color === */
+:root {
+  --color-fondo: #0f0f0f;
+  --color-superficie: #1a1a1a;
+  --color-borde: #2e2e2e;
+  --color-acento: #e8c97e;
+  --color-texto: #f0ece4;
+  --color-texto-suave: #888;
+  --radio: 12px;
+  --fuente-titulo: 'Playfair Display', serif;
+  --fuente-cuerpo: 'DM Sans', sans-serif;
+}
+
+/* === Reset básico === */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* === Página general === */
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-cuerpo);
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.7;
+  min-height: 100vh;
+  padding: 0 1.5rem;
+}
+
+/* === Cabecera === */
+header {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 0 2rem;
+  border-bottom: 1px solid var(--color-borde);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  font-family: var(--fuente-titulo);
+  font-size: 1.6rem;
+  color: var(--color-acento);
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+
+nav a {
+  color: var(--color-texto-suave);
+  text-decoration: none;
+  margin-left: 1.8rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: var(--color-acento);
+}
+
+/* === Contenido principal === */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 5rem 0;
+}
+
+/* === Títulos === */
+h1 {
+  font-family: var(--fuente-titulo);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  line-height: 1.15;
+  color: var(--color-texto);
+  margin-bottom: 1.2rem;
+}
+
+h1 span {
+  color: var(--color-acento);
+}
+
+h2 {
+  font-family: var(--fuente-titulo);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  margin-top: 3rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--color-acento);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* === Párrafos === */
+p {
+  color: var(--color-texto-suave);
+  max-width: 62ch;
+  margin-bottom: 1.2rem;
+}
+
+/* === Botones === */
+.btn {
+  display: inline-block;
+  background-color: var(--color-acento);
+  color: #0f0f0f;
+  padding: 0.75rem 2rem;
+  border-radius: 999px;
+  font-family: var(--fuente-cuerpo);
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+  letter-spacing: 0.03em;
+}
+
+.btn:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+.btn-secundario {
+  background-color: transparent;
+  color: var(--color-texto);
+  border: 1px solid var(--color-borde);
+}
+
+.btn-secundario:hover {
+  border-color: var(--color-acento);
+  color: var(--color-acento);
+}
+
+/* === Tarjetas === */
+.tarjeta {
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.tarjeta:hover {
+  border-color: var(--color-acento);
+  transform: translateY(-3px);
+}
+
+/* === Grid de tarjetas === */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* === Sección hero === */
+.hero {
+  padding: 4rem 0 3rem;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  margin-bottom: 2.5rem;
+}
+
+/* === Línea divisora === */
+hr {
+  border: none;
+  border-top: 1px solid var(--color-borde);
+  margin: 3rem 0;
+}
+
+/* === Links === */
+a {
+  color: var(--color-acento);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* === Listas === */
+ul, ol {
+  padding-left: 1.5rem;
+  color: var(--color-texto-suave);
+  margin-bottom: 1rem;
+}
+
+li {
+  margin-bottom: 0.4rem;
+}
+
+/* === Imágenes === */
+img {
+  max-width: 100%;
+  border-radius: var(--radio);
+  display: block;
+}
+
+/* === Pie de página === */
+footer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 0 3rem;
+  border-top: 1px solid var(--color-borde);
+  color: var(--color-texto-suave);
+  font-size: 0.875rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* === Responsive === */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  nav a:first-child {
+    margin-left: 0;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
