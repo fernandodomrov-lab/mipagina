@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catarro Construcción — Materiales · Excavaciones · Contenedores · Pego, Alicante</title>
+  <meta name="description" content="Más de 40 años al servicio de la Marina Alta. Materiales de construcción BdB, excavaciones, contenedores y transporte en Pego, Alicante." />
+  <meta name="theme-color" content="#2B2B2B" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <style>
+    /* =============================================
+       VARIABLES & RESET
+    ============================================= */
+    :root {
+      --naranja:       #E8600A;
+      --naranja-dark:  #C04E06;
+      --gris-oscuro:   #2B2B2B;
+      --gris-hormigon: #3D3D3D;
+      --arena:         #F5EDD8;
+      --blanco-roto:   #FAFAF8;
+      --gris-medio:    #6B6B6B;
+      --gris-claro:    #E8E4DE;
+      --negro:         #1A1A1A;
+
+      --font-display: 'Oswald', sans-serif;
+      --font-body:    'Lato', sans-serif;
+
+      --radius:     4px;
+      --shadow:     0 4px 24px rgba(0,0,0,0.12);
+      --shadow-lg:  0 8px 48px rgba(0,0,0,0.20);
+      --ease:       cubic-bezier(0.4,0,0.2,1);
+      --nav-height: 64px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      /* FIX #1: offset all anchor targets below the fixed navbar */
+      scroll-padding-top: var(--nav-height);
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--blanco-roto);
+      color: var(--gris-oscuro);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a   { text-decoration: none; color: inherit; }
+    ul  { list-style: none; }
+
+    /* FIX #1b: explicit scroll margin on every anchor section */
+    section[id], footer[id] {
+      scroll-margin-top: var(--nav-height);
+    }
+
+    /* =============================================
+       UTILITIES
+    ============================================= */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.05;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--gris-medio);
+      margin-top: 0.75rem;
+      max-width: 560px;
+      line-height: 1.6;
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--naranja);
+      margin-bottom: 12px;
+    }
+    .section-tag::before,
+    .section-tag::after {
+      content: '';
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: var(--naranja);
+      flex-shrink: 0;
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 28px;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.3s var(--ease);
+      border-radius: var(--radius);
+      /* FIX: minimum touch target 48px */
+      min-height: 48px;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      white-space: nowrap;
+    }
+
+    .btn-primary { background: var(--naranja); color: #fff; border-color: var(--naranja); }
+    .btn-primary:hover, .btn-primary:focus-visible {
+      background: var(--naranja-dark);
+      border-color: var(--naranja-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(232,96,10,0.4);
+    }
+
+    .btn-outline-white { background: transparent; color: #fff; border-color: rgba(255,255,255,0.65); }
+    .btn-outline-white:hover, .btn-outline-white:focus-visible {
+      background: rgba(255,255,255,0.1);
+      border-color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* =============================================
+       SCROLL REVEAL — FIX #3: solo Y en móvil
+    ============================================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    /* FIX: from-left / from-right only on wide screens */
+    @media (min-width: 769px) {
+      .reveal.from-left  { transform: translateX(-36px); }
+      .reveal.from-right { transform: translateX(36px); }
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translate(0);
+    }
+    .reveal-d1 { transition-delay: 0.08s; }
+    .reveal-d2 { transition-delay: 0.16s; }
+    .reveal-d3 { transition-delay: 0.24s; }
+    .reveal-d4 { transition-delay: 0.32s; }
+
+    /* =============================================
+       NAVBAR
+    ============================================= */
+    #header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 1000;
+      height: var(--nav-height);
+      background: rgba(27,27,27,0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    }
+    #header.scrolled {
+      background: rgba(27,27,27,0.98);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.35);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: var(--nav-height);
+      gap: 20px;
+    }
+
+    .nav-logo img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+      filter: brightness(1.15);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .nav-links a {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      position: relative;
+      transition: color 0.25s;
+      padding: 4px 0;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--naranja);
+      transition: width 0.3s var(--ease);
+    }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+
+    .nav-cta { padding: 10px 20px; font-size: 0.82rem; min-height: 40px; }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 44px;
+      height: 44px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 8px;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      transition: all 0.3s var(--ease);
+      transform-origin: center;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile drawer */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--nav-height);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(22,22,22,0.98);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 32px 24px 48px;
+      flex-direction: column;
+      gap: 0;
+      z-index: 998;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a:not(.btn) {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.8);
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: color 0.25s;
+      display: block;
+    }
+    .mobile-menu a:not(.btn):hover { color: var(--naranja); }
+
+    .mobile-menu .m-cta {
+      margin-top: 28px;
+      width: 100%;
+      padding: 18px;
+      font-size: 1rem;
+    }
+
+    .mobile-contact-strip {
+      margin-top: auto;
+      padding-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .mobile-contact-strip a {
+      color: rgba(255,255,255,0.45) !important;
+      font-size: 0.88rem !important;
+      font-family: var(--font-body) !important;
+      letter-spacing: 0 !important;
+      padding: 6px 0 !important;
+      border: none !important;
+      text-transform: none !important;
+    }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    #hero {
+      position: relative;
+      min-height: 100svh;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://catarroconstruccion.com/wp-content/uploads/2025/11/IMG_20181212_1053487-768x512.jpg');
+      background-size: cover;
+      background-position: center 35%;
+      /* FIX #6: no initial scale conflict with JS parallax */
+      will-change: transform;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        150deg,
+        rgba(20,20,20,0.85) 0%,
+        rgba(20,20,20,0.60) 55%,
+        rgba(20,20,20,0.45) 100%
+      );
+    }
+
+    /* angled bottom edge */
+    .hero-shape {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 70px;
+      background: var(--blanco-roto);
+      clip-path: polygon(0 55%, 100% 0, 100% 100%, 0 100%);
+      z-index: 3;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding-top: var(--nav-height);
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--naranja);
+      margin-bottom: 18px;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.3s forwards;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: var(--naranja);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 8vw, 5.8rem);
+      font-weight: 700;
+      line-height: 0.95;
+      text-transform: uppercase;
+      color: #fff;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.5s forwards;
+    }
+    .hero-title .accent { color: var(--naranja); display: block; }
+    .hero-title .dot    { color: var(--naranja); }
+
+    .hero-bar {
+      width: 56px;
+      height: 3px;
+      background: var(--naranja);
+      margin: 24px 0;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.7s forwards;
+    }
+
+    .hero-sub {
+      font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+      color: rgba(255,255,255,0.8);
+      line-height: 1.6;
+      max-width: 480px;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.9s forwards;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+      opacity: 0;
+      animation: fadeUp 0.7s 1.1s forwards;
+    }
+
+    /* side badges */
+    .hero-badges {
+      position: absolute;
+      right: 0;
+      bottom: 90px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+    }
+    .hero-badge {
+      padding: 11px 22px 11px 16px;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #fff;
+      border-left: 3px solid rgba(255,255,255,0.25);
+      opacity: 0;
+      animation: slideRight 0.5s forwards;
+    }
+    .hero-badge:nth-child(1) { background: var(--naranja);       animation-delay: 1.2s; }
+    .hero-badge:nth-child(2) { background: var(--gris-hormigon); animation-delay: 1.35s; }
+    .hero-badge:nth-child(3) { background: var(--gris-oscuro);   animation-delay: 1.5s; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideRight {
+      from { opacity: 0; transform: translateX(30px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    /* =============================================
+       QUIÉNES SOMOS
+    ============================================= */
+    #quienes-somos { padding: 88px 0 72px; }
+
+    .quienes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .quienes-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--naranja);
+      margin-bottom: 14px;
+    }
+    .quienes-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--naranja);
+    }
+
+    .quienes-text {
+      font-size: 1rem;
+      line-height: 1.78;
+      color: var(--gris-medio);
+      margin-top: 18px;
+    }
+    .quienes-text strong { color: var(--gris-oscuro); }
+
+    .quienes-stats {
+      display: flex;
+      gap: 28px;
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 2px solid var(--gris-claro);
+      flex-wrap: wrap;
+    }
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--naranja);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gris-medio);
+      margin-top: 5px;
+      line-height: 1.3;
+    }
+
+    .quienes-img-wrap {
+      position: relative;
+    }
+    .quienes-img-wrap img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      display: block;
+    }
+    /* FIX #5: decorative corners hidden on small screens, clipped on medium */
+    .quienes-img-wrap::before,
+    .quienes-img-wrap::after { display: none; }
+
+    @media (min-width: 900px) {
+      .quienes-img-wrap::before {
+        display: block;
+        content: '';
+        position: absolute;
+        top: -14px; right: -14px;
+        width: 80px; height: 80px;
+        border-top: 3px solid var(--naranja);
+        border-right: 3px solid var(--naranja);
+        pointer-events: none;
+      }
+      .quienes-img-wrap::after {
+        display: block;
+        content: '';
+        position: absolute;
+        bottom: -14px; left: -14px;
+        width: 80px; height: 80px;
+        border-bottom: 3px solid var(--gris-hormigon);
+        border-left: 3px solid var(--gris-hormigon);
+        pointer-events: none;
+      }
+    }
+
+    /* =============================================
+       SERVICIOS
+    ============================================= */
+    #servicios {
+      padding: 80px 0 96px;
+      background: var(--gris-oscuro);
+    }
+
+    .servicios-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    .servicios-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+
+    .srv-card {
+      background: var(--gris-hormigon);
+      overflow: hidden;
+      transition: transform 0.3s var(--ease);
+    }
+    .srv-card:hover { transform: translateY(-4px); }
+    .srv-card:hover .srv-img { transform: scale(1.06); }
+
+    .srv-img-wrap {
+      position: relative;
+      height: 260px;
+      overflow: hidden;
+      background: #333;
+    }
+    .srv-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      display: block;
+    }
+    .srv-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(20,20,20,0.45);
+      transition: background 0.3s;
+    }
+    .srv-card:hover .srv-overlay { background: rgba(20,20,20,0.6); }
+
+    .srv-num {
+      position: absolute;
+      top: 14px; left: 14px;
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* FIX #4: transport card — icon via CSS, no inline lucide */
+    .srv-no-photo .srv-img-wrap {
+      background: linear-gradient(135deg, var(--naranja) 0%, var(--naranja-dark) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .srv-no-photo-icon {
+      color: rgba(255,255,255,0.28);
+      width: 72px;
+      height: 72px;
+    }
+
+    .srv-body { padding: 22px 20px 26px; }
+    .srv-icon { width: 32px; height: 32px; color: var(--naranja); margin-bottom: 10px; }
+    .srv-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .srv-desc {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.58);
+      margin-top: 9px;
+      line-height: 1.6;
+    }
+    .srv-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-display);
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--naranja);
+      margin-top: 14px;
+      transition: gap 0.25s;
+      min-height: 40px;
+      touch-action: manipulation;
+    }
+    .srv-link:hover { gap: 10px; }
+
+    /* =============================================
+       POR QUÉ ELEGIRNOS
+    ============================================= */
+    #por-que {
+      padding: 80px 0;
+      background: var(--arena);
+    }
+    .por-que-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .ventajas-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2px;
+    }
+    .ventaja {
+      background: #fff;
+      padding: 32px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    }
+    .ventaja::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--naranja);
+      transform: scaleX(0);
+      transition: transform 0.3s var(--ease);
+    }
+    .ventaja:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .ventaja:hover::after { transform: scaleX(1); }
+
+    .v-icon-wrap {
+      width: 56px; height: 56px;
+      background: var(--arena);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      transition: background 0.3s var(--ease);
+    }
+    .v-icon-wrap svg { width: 24px; height: 24px; color: var(--naranja); transition: color 0.3s; }
+    .ventaja:hover .v-icon-wrap { background: var(--naranja); }
+    .ventaja:hover .v-icon-wrap svg { color: #fff; }
+
+    .v-title {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--gris-oscuro);
+    }
+    .v-desc {
+      font-size: 0.83rem;
+      color: var(--gris-medio);
+      margin-top: 8px;
+      line-height: 1.55;
+    }
+
+    /* =============================================
+       GALERÍA
+    ============================================= */
+    #galeria {
+      padding: 80px 0;
+      background: var(--blanco-roto);
+    }
+    .galeria-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 5px;
+    }
+    .g-item {
+      overflow: hidden;
+      position: relative;
+      background: var(--gris-claro);
+    }
+    .g-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      display: block;
+    }
+    .g-item:hover img { transform: scale(1.05); }
+    .g-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(232,96,10,0);
+      transition: background 0.3s;
+    }
+    .g-item:hover::after { background: rgba(232,96,10,0.15); }
+
+    .g1 { grid-column: 1 / 6;  height: 300px; }
+    .g2 { grid-column: 6 / 10; height: 300px; }
+    .g3 { grid-column: 10 / 13; height: 300px; }
+    .g4 { grid-column: 1 / 5;  height: 260px; }
+    .g5 { grid-column: 5 / 9;  height: 260px; }
+    .g6 { grid-column: 9 / 13; height: 260px; }
+
+    /* =============================================
+       CONTACTO
+    ============================================= */
+    #contacto {
+      padding: 80px 0 0;
+      background: var(--gris-oscuro);
+    }
+    .contacto-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+    .contacto-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      align-items: start;
+    }
+    .c-form-wrap { padding-right: 48px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 7px;
+    }
+    /* FIX #2: font-size ≥ 16px on inputs to prevent iOS auto-zoom */
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 16px; /* iOS zoom fix — must be exactly 16px */
+      padding: 13px 15px;
+      border-radius: var(--radius);
+      outline: none;
+      transition: border-color 0.25s, background 0.25s;
+      -webkit-appearance: none;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,0.25); }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--naranja);
+      background: rgba(255,255,255,0.1);
+    }
+    .form-group textarea { height: 128px; resize: vertical; }
+
+    .form-group input[type="tel"] { -webkit-appearance: none; appearance: none; }
+
+    .form-submit { margin-top: 6px; }
+    .form-submit .btn-primary { width: 100%; padding: 16px; }
+    .form-note {
+      font-size: 0.76rem;
+      color: rgba(255,255,255,0.28);
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .c-info-wrap {
+      background: rgba(255,255,255,0.04);
+      padding: 36px 32px;
+      border-left: 1px solid rgba(255,255,255,0.07);
+    }
+    .info-block-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #fff;
+      margin-bottom: 22px;
+    }
+    .info-items { display: flex; flex-direction: column; gap: 18px; }
+    .info-item { display: flex; gap: 13px; align-items: flex-start; }
+    .info-icon {
+      width: 38px; height: 38px;
+      background: rgba(232,96,10,0.15);
+      border-radius: var(--radius);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .info-icon svg { width: 16px; height: 16px; color: var(--naranja); }
+    .info-lbl {
+      font-family: var(--font-display);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 3px;
+    }
+    .info-val { font-size: 0.9rem; color: rgba(255,255,255,0.82); line-height: 1.45; }
+    .info-val a { color: rgba(255,255,255,0.82); transition: color 0.25s; }
+    .info-val a:hover { color: var(--naranja); }
+
+    .info-sep { height: 1px; background: rgba(255,255,255,0.07); margin: 22px 0; }
+
+    .horario-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.86rem;
+      padding: 4px 0;
+    }
+    .h-dia  { color: rgba(255,255,255,0.48); }
+    .h-hora { color: rgba(255,255,255,0.82); font-weight: 700; }
+
+    .c-wa-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      width: 100%;
+      margin-top: 20px;
+      padding: 15px;
+      background: #25D366;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: var(--radius);
+      transition: background 0.25s, transform 0.25s;
+      min-height: 52px;
+      touch-action: manipulation;
+    }
+    .c-wa-btn:hover { background: #1ebe5d; transform: translateY(-2px); }
+    .c-wa-btn svg { width: 20px; height: 20px; fill: #fff; flex-shrink: 0; }
+
+    /* Map */
+    .c-map { margin-top: 56px; }
+    .c-map iframe {
+      width: 100%;
+      height: 360px;
+      border: none;
+      display: block;
+      filter: grayscale(20%) contrast(1.05);
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    #footer {
+      background: var(--negro);
+      padding: 52px 0 28px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 44px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .footer-logo img {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+      filter: brightness(1.1);
+      margin-bottom: 14px;
+    }
+    .footer-desc {
+      font-size: 0.86rem;
+      color: rgba(255,255,255,0.38);
+      line-height: 1.65;
+    }
+    .footer-socials {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .f-social {
+      width: 38px; height: 38px;
+      background: rgba(255,255,255,0.06);
+      border-radius: var(--radius);
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.25s;
+      touch-action: manipulation;
+    }
+    .f-social:hover { background: var(--naranja); }
+    .f-social svg { width: 18px; height: 18px; color: rgba(255,255,255,0.7); }
+
+    .f-col-title {
+      font-family: var(--font-display);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 14px;
+    }
+    .f-links { display: flex; flex-direction: column; gap: 9px; }
+    .f-links a {
+      font-size: 0.86rem;
+      color: rgba(255,255,255,0.38);
+      transition: color 0.25s;
+      min-height: 28px;
+      display: flex;
+      align-items: center;
+    }
+    .f-links a:hover { color: var(--naranja); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-top: 22px;
+    }
+    .f-copy { font-size: 0.78rem; color: rgba(255,255,255,0.22); }
+    .f-legal { display: flex; gap: 20px; flex-wrap: wrap; }
+    .f-legal a { font-size: 0.78rem; color: rgba(255,255,255,0.22); transition: color 0.25s; }
+    .f-legal a:hover { color: rgba(255,255,255,0.6); }
+
+    /* =============================================
+       FLOATING BUTTONS
+    ============================================= */
+    /* WhatsApp */
+    .wa-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 900;
+      width: 56px; height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+      transition: transform 0.3s var(--ease), box-shadow 0.3s;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.6); }
+    .wa-float::before {
+      content: '';
+      position: absolute;
+      inset: -5px;
+      border-radius: 50%;
+      border: 2px solid rgba(37,211,102,0.55);
+      animation: waPulse 2.5s infinite;
+    }
+    .wa-float svg { width: 28px; height: 28px; fill: #fff; }
+    @keyframes waPulse {
+      0%   { opacity: 0.7; transform: scale(1); }
+      100% { opacity: 0; transform: scale(1.55); }
+    }
+
+    /* Scroll top — FIX: position above WA button */
+    .scroll-top {
+      position: fixed;
+      bottom: 92px;
+      right: 24px;
+      z-index: 890;
+      width: 42px; height: 42px;
+      background: var(--gris-oscuro);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s, transform 0.3s, background 0.25s;
+      touch-action: manipulation;
+    }
+    .scroll-top.visible { opacity: 1; pointer-events: all; }
+    .scroll-top:hover { transform: translateY(-2px); background: var(--naranja); }
+    .scroll-top svg { width: 18px; height: 18px; color: #fff; }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 90px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--gris-oscuro);
+      color: #fff;
+      padding: 13px 22px;
+      border-radius: var(--radius);
+      border-left: 4px solid var(--naranja);
+      font-size: 0.9rem;
+      opacity: 0;
+      transition: opacity 0.35s, transform 0.35s;
+      z-index: 9999;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* =============================================
+       RESPONSIVE — TABLET (≤1100px)
+    ============================================= */
+    @media (max-width: 1100px) {
+      .servicios-grid { grid-template-columns: repeat(2, 1fr); }
+      .ventajas-grid  { grid-template-columns: repeat(3, 1fr); }
+      .footer-grid    { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+
+    /* =============================================
+       RESPONSIVE — TABLET (≤900px)
+    ============================================= */
+    @media (max-width: 900px) {
+      .quienes-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .quienes-img-wrap img { height: 320px; }
+
+      .contacto-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .c-form-wrap { padding-right: 0; }
+      .c-info-wrap {
+        border-left: none;
+        border-top: 1px solid rgba(255,255,255,0.07);
+        padding: 36px 0 0;
+        margin-top: 36px;
+      }
+
+      .galeria-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .g1, .g2, .g3, .g4, .g5, .g6 {
+        grid-column: auto;
+        grid-row: auto;
+        height: 210px;
+      }
+    }
+
+    /* =============================================
+       RESPONSIVE — MOBILE (≤768px)
+    ============================================= */
+    @media (max-width: 768px) {
+      :root { --nav-height: 60px; }
+
+      /* hide desktop nav items */
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+
+      /* Hero */
+      #hero { min-height: 100svh; align-items: flex-end; }
+      .hero-content { padding-bottom: 80px; }
+      .hero-ctas { flex-direction: column; align-items: stretch; }
+      .hero-ctas .btn { width: 100%; font-size: 0.95rem; }
+      .hero-badges { display: none; }
+      .hero-shape { height: 50px; }
+
+      /* Sections spacing */
+      #quienes-somos { padding: 60px 0 52px; }
+      #servicios { padding: 60px 0 72px; }
+      #por-que { padding: 60px 0; }
+      #galeria  { padding: 60px 0; }
+      #contacto { padding: 60px 0 0; }
+      #footer   { padding: 44px 0 24px; }
+
+      /* Services — single column */
+      .servicios-grid { grid-template-columns: 1fr; gap: 2px; }
+      .srv-img-wrap { height: 220px; }
+
+      /* Ventajas — 2 col */
+      .ventajas-grid { grid-template-columns: repeat(2, 1fr); gap: 2px; }
+      .ventaja { padding: 28px 16px; }
+
+      /* Contact */
+      .form-row { grid-template-columns: 1fr; }
+      .c-map iframe { height: 260px; }
+
+      /* Footer */
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .f-legal { justify-content: center; }
+      .footer-desc { max-width: 100%; }
+
+      /* Float buttons */
+      .wa-float { width: 52px; height: 52px; bottom: 20px; right: 20px; }
+      .scroll-top { bottom: 84px; right: 20px; }
+    }
+
+    /* =============================================
+       RESPONSIVE — SMALL MOBILE (≤480px)
+    ============================================= */
+    @media (max-width: 480px) {
+      .galeria-grid { grid-template-columns: 1fr; gap: 4px; }
+      .g1, .g2, .g3, .g4, .g5, .g6 { height: 220px; }
+
+      .ventajas-grid { grid-template-columns: 1fr; }
+
+      .quienes-stats { gap: 18px; }
+      .stat-number { font-size: 2rem; }
+
+      .hero-title { font-size: clamp(2.4rem, 11vw, 3.2rem); }
+
+      /* Toast full width */
+      .toast {
+        left: 16px;
+        right: 16px;
+        width: auto;
+        transform: translateX(0) translateY(20px);
+        white-space: normal;
+      }
+      .toast.show { transform: translateX(0) translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<header id="header">
+  <div class="container">
+    <nav class="nav-inner">
+
+      <a href="#hero" class="nav-logo" aria-label="Catarro Construcción">
+        <img src="https://catarroconstruccion.com/wp-content/uploads/2026/01/cropped-logos-new.png"
+             alt="Catarro Construcción" loading="eager" />
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="#hero">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+
+      <a href="#contacto" class="btn btn-primary nav-cta">Solicitar presupuesto</a>
+
+      <button class="hamburger" id="hambBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<nav class="mobile-menu" id="mobileMenu" aria-hidden="true" aria-label="Menú móvil">
+  <a href="#hero"          class="m-link">Inicio</a>
+  <a href="#quienes-somos" class="m-link">Quiénes somos</a>
+  <a href="#servicios"     class="m-link">Servicios</a>
+  <a href="#galeria"       class="m-link">Galería</a>
+  <a href="#contacto"      class="m-link">Contacto</a>
+  <a href="#contacto"      class="btn btn-primary m-cta m-link">Solicitar presupuesto</a>
+  <div class="mobile-contact-strip">
+    <a href="tel:+34966400496">📞 966 400 496</a>
+    <a href="tel:+34616475592">📱 616 475 592</a>
+    <a href="mailto:info@catarroconstruccion.com">✉️ info@catarroconstruccion.com</a>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section id="hero">
+  <div class="hero-bg" id="heroBg" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Pego · Marina Alta · Alicante</p>
+      <h1 class="hero-title">
+        Materiales
+        <span class="accent">Excavaciones</span>
+        Contenedores
+      </h1>
+      <div class="hero-bar"></div>
+      <p class="hero-sub">Más de 40 años al servicio de la Marina Alta y La Safor. Profesionalidad, experiencia y trato cercano desde Pego, Alicante.</p>
+      <div class="hero-ctas">
+        <a href="#contacto" class="btn btn-primary">
+          <i data-lucide="send" style="width:15px;height:15px;"></i>
+          Solicitar presupuesto
+        </a>
+        <a href="#servicios" class="btn btn-outline-white">
+          Ver servicios
+          <i data-lucide="arrow-down" style="width:15px;height:15px;"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-badges" aria-hidden="true">
+    <div class="hero-badge">Materiales BdB</div>
+    <div class="hero-badge">Excavaciones</div>
+    <div class="hero-badge">Contenedores</div>
+  </div>
+
+  <div class="hero-shape" aria-hidden="true"></div>
+</section>
+
+<!-- ========== QUIÉNES SOMOS ========== -->
+<section id="quienes-somos">
+  <div class="container">
+    <div class="quienes-grid">
+
+      <div class="reveal from-left">
+        <p class="quienes-label">Quiénes somos</p>
+        <h2 class="section-title">Especialistas en la Marina Alta</h2>
+        <p class="quienes-text">
+          <strong>Transportes y Excavaciones Catarro, S.L.</strong> lleva más de 40 años siendo referente en
+          materiales de construcción, excavaciones y transporte en la comarca de la Marina Alta y La Safor.
+        </p>
+        <p class="quienes-text">
+          Desde nuestro almacén en <strong>Pego (Alicante)</strong>, ofrecemos un servicio completo y
+          personalizado para particulares, constructores y empresas. Repartimos a Pego, Oliva, Dénia,
+          Els Poblets y toda la comarca, garantizando rapidez y profesionalidad.
+        </p>
+        <p class="quienes-text">
+          Como distribuidores <strong>BdB Catarro</strong>, disponemos de una amplia gama de materiales
+          de primera calidad con asesoramiento técnico directo.
+        </p>
+        <div class="quienes-stats">
+          <div>
+            <div class="stat-number">40+</div>
+            <div class="stat-label">Años de<br>experiencia</div>
+          </div>
+          <div>
+            <div class="stat-number">4</div>
+            <div class="stat-label">Servicios<br>especializados</div>
+          </div>
+          <div>
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Compromiso<br>local</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quienes-img-wrap reveal from-right">
+        <img src="https://catarroconstruccion.com/wp-content/uploads/2025/11/IMG_8713.jpg"
+             alt="Almacén Catarro Construcción en Pego" loading="lazy" />
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== SERVICIOS ========== -->
+<section id="servicios">
+  <div class="container">
+    <div class="servicios-header reveal">
+      <div class="section-tag" style="justify-content:center;">Lo que hacemos</div>
+      <h2 class="section-title" style="color:#fff;">Nuestros servicios</h2>
+      <p class="section-subtitle" style="color:rgba(255,255,255,0.5);margin:10px auto 0;text-align:center;">
+        Todo lo que necesitas para tu obra, en un solo lugar y con décadas de experiencia.
+      </p>
+    </div>
+
+    <div class="servicios-grid">
+
+      <!-- Materiales -->
+      <div class="srv-card reveal reveal-d1">
+        <div class="srv-img-wrap">
+          <img class="srv-img"
+               src="https://catarroconstruccion.com/wp-content/uploads/2025/11/Venta-directa-683x1024.jpg"
+               alt="Venta directa de materiales de construcción BdB" loading="lazy" />
+          <div class="srv-overlay"></div>
+          <span class="srv-num">01</span>
+        </div>
+        <div class="srv-body">
+          <i data-lucide="package" class="srv-icon"></i>
+          <h3 class="srv-title">Materiales BdB</h3>
+          <p class="srv-desc">Cemento, colas, áridos, aislamientos, morteros y mucho más. Distribuidores oficiales con asesoramiento técnico personalizado.</p>
+          <a href="#contacto" class="srv-link">
+            Solicitar info <i data-lucide="arrow-right" style="width:13px;height:13px;"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Contenedores -->
+      <div class="srv-card reveal reveal-d2">
+        <div class="srv-img-wrap">
+          <img class="srv-img"
+               src="https://catarroconstruccion.com/wp-content/uploads/2025/11/contenedor-de-gancho-2.jpg"
+               alt="Contenedores de obra de distintos tamaños" loading="lazy" />
+          <div class="srv-overlay"></div>
+          <span class="srv-num">02</span>
+        </div>
+        <div class="srv-body">
+          <i data-lucide="archive" class="srv-icon"></i>
+          <h3 class="srv-title">Contenedores de obra</h3>
+          <p class="srv-desc">Distintos tamaños adaptados a tus necesidades para la recogida y gestión de residuos de construcción y demolición.</p>
+          <a href="#contacto" class="srv-link">
+            Solicitar info <i data-lucide="arrow-right" style="width:13px;height:13px;"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Excavaciones -->
+      <div class="srv-card reveal reveal-d3">
+        <div class="srv-img-wrap">
+          <img class="srv-img"
+               src="https://catarroconstruccion.com/wp-content/uploads/2025/11/IMG_20181212_1053487-768x512.jpg"
+               alt="Excavaciones y movimiento de tierras" loading="lazy" />
+          <div class="srv-overlay"></div>
+          <span class="srv-num">03</span>
+        </div>
+        <div class="srv-body">
+          <i data-lucide="shovel" class="srv-icon"></i>
+          <h3 class="srv-title">Excavaciones</h3>
+          <p class="srv-desc">Movimiento de tierras, nivelaciones y preparación de terrenos para construcción con maquinaria especializada.</p>
+          <a href="#contacto" class="srv-link">
+            Solicitar info <i data-lucide="arrow-right" style="width:13px;height:13px;"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Transporte — FIX #4: icono SVG directo, sin Lucide en img-wrap -->
+      <div class="srv-card srv-no-photo reveal reveal-d4">
+        <div class="srv-img-wrap">
+          <!-- SVG directo, no depende de Lucide.createIcons() para centrarse -->
+          <svg class="srv-no-photo-icon" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3"/>
+            <rect x="9" y="11" width="14" height="10" rx="2"/>
+            <circle cx="12" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+          </svg>
+          <span class="srv-num" style="color:rgba(255,255,255,0.4);">04</span>
+        </div>
+        <div class="srv-body">
+          <i data-lucide="truck" class="srv-icon"></i>
+          <h3 class="srv-title">Transporte</h3>
+          <p class="srv-desc">Reparto de mercancías y materiales en toda la Marina Alta. Pego, Oliva, Dénia, Els Poblets y alrededores.</p>
+          <a href="#contacto" class="srv-link">
+            Solicitar info <i data-lucide="arrow-right" style="width:13px;height:13px;"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== POR QUÉ ELEGIRNOS ========== -->
+<section id="por-que">
+  <div class="container">
+    <div class="por-que-header reveal">
+      <div class="section-tag" style="justify-content:center;">Nuestros valores</div>
+      <h2 class="section-title">¿Por qué elegirnos?</h2>
+      <p class="section-subtitle" style="margin:10px auto 0;text-align:center;">
+        Décadas de trabajo bien hecho avalan cada proyecto que emprendemos junto a nuestros clientes.
+      </p>
+    </div>
+
+    <div class="ventajas-grid">
+      <div class="ventaja reveal reveal-d1">
+        <div class="v-icon-wrap"><i data-lucide="award"></i></div>
+        <div class="v-title">40+ años de experiencia</div>
+        <p class="v-desc">Trayectoria consolidada avalada por miles de obras y clientes satisfechos.</p>
+      </div>
+      <div class="ventaja reveal reveal-d2">
+        <div class="v-icon-wrap"><i data-lucide="message-circle"></i></div>
+        <div class="v-title">Asesoramiento técnico</div>
+        <p class="v-desc">Nuestro equipo te orienta para elegir el material o servicio más adecuado.</p>
+      </div>
+      <div class="ventaja reveal reveal-d3">
+        <div class="v-icon-wrap"><i data-lucide="map-pin"></i></div>
+        <div class="v-title">Reparto en la comarca</div>
+        <p class="v-desc">Servicio a domicilio en Pego, Oliva, Dénia, Els Poblets y toda la Marina Alta.</p>
+      </div>
+      <div class="ventaja reveal reveal-d2">
+        <div class="v-icon-wrap"><i data-lucide="file-text"></i></div>
+        <div class="v-title">Presupuesto gratuito</div>
+        <p class="v-desc">Solicita tu presupuesto sin compromiso. Respuesta rápida y transparente.</p>
+      </div>
+      <div class="ventaja reveal reveal-d3">
+        <div class="v-icon-wrap"><i data-lucide="clock"></i></div>
+        <div class="v-title">Servicio puntual</div>
+        <p class="v-desc">Cumplimos con los plazos acordados. Tu obra no puede esperar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== GALERÍA ========== -->
+<section id="galeria">
+  <div class="container">
+    <div class="galeria-header reveal">
+      <div class="section-tag" style="justify-content:center;">Nuestro trabajo</div>
+      <h2 class="section-title">Galería</h2>
+      <p class="section-subtitle" style="margin:10px auto 0;text-align:center;">
+        Imágenes reales de nuestras instalaciones, servicios y trabajos en la comarca.
+      </p>
+    </div>
+    <div class="galeria-grid">
+      <div class="g-item g1 reveal">
+        <img src="https://catarroconstruccion.com/wp-content/uploads/2025/11/IMG_8720.jpg"
+             alt="Contenedor de obra" loading="lazy" />
+      </div>
+      <div class="g-item g2 reveal reveal-d1">
+        <img src="https://catarroconstruccion.com/wp-content/uploads/2025/11/IMG_8715.jpg"
+             alt="Almacén de materiales" loading="lazy" />
+      </div>
+      <div class="g-item g3 reveal reveal-d2">
+        <img src="https://catarroconstruccion.com/wp-content/uploads/2025/11/trabajos-excavacion-1024x1536.jpg"
+             alt="Trabajos de excavación" loading="lazy" />
+      </div>
+      <div class="g-item g4 reveal reveal-d1">
+        <img src="https://catarroconstruccion.com/wp-content/uploads/2025/11/Venta-directa-683x1024.jpg"
+             alt="Venta directa de materiales" loading="lazy" />
+      </div>
+      <div class="g-item g5 reveal reveal-d2">
+        <img src="https://catarroconstruccion.com/wp-content/uploads/2025/11/IMG_20181212_1053487-768x512.jpg"
+             alt="Excavadora JCB en obra" loading="lazy" />
+      </div>
+      <div class="g-item g6 reveal reveal-d3">
+        <img src="https://catarroconstruccion.com/wp-content/uploads/2025/11/contenedor-de-gancho-2.jpg"
+             alt="Contenedor de gancho" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACTO ========== -->
+<section id="contacto">
+  <div class="container">
+    <div class="contacto-header reveal">
+      <div class="section-tag" style="justify-content:center;">Estamos aquí</div>
+      <h2 class="section-title" style="color:#fff;">Contacta con nosotros</h2>
+      <p class="section-subtitle" style="color:rgba(255,255,255,0.48);margin:10px auto 0;text-align:center;">
+        Solicita tu presupuesto sin compromiso o resuélvenos cualquier duda.
+      </p>
+    </div>
+
+    <div class="contacto-grid">
+
+      <!-- Formulario -->
+      <div class="c-form-wrap reveal from-left">
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre">Nombre *</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono *</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="6XX XXX XXX" required autocomplete="tel" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="tu@email.com" autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="servicio">Servicio de interés</label>
+            <input type="text" id="servicio" name="servicio" placeholder="Materiales, excavaciones, contenedor…" />
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje *</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos en qué podemos ayudarte…" required></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary">
+              <i data-lucide="send" style="width:15px;height:15px;"></i>
+              Enviar mensaje
+            </button>
+          </div>
+          <p class="form-note">* Campos obligatorios. Te respondemos en menos de 24h.</p>
+        </form>
+      </div>
+
+      <!-- Info -->
+      <div class="c-info-wrap reveal from-right">
+        <div class="info-block-title">Información de contacto</div>
+        <div class="info-items">
+          <div class="info-item">
+            <div class="info-icon"><i data-lucide="phone"></i></div>
+            <div>
+              <div class="info-lbl">Teléfono</div>
+              <div class="info-val">
+                <a href="tel:+34966400496">966 400 496</a><br>
+                <a href="tel:+34616475592">616 475 592</a>
+              </div>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i data-lucide="mail"></i></div>
+            <div>
+              <div class="info-lbl">Email</div>
+              <div class="info-val">
+                <a href="mailto:info@catarroconstruccion.com">info@catarroconstruccion.com</a>
+              </div>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i data-lucide="map-pin"></i></div>
+            <div>
+              <div class="info-lbl">Dirección</div>
+              <div class="info-val">
+                C/ Metge Joaquim Pastor Alentado 1<br>
+                Pego (Alicante) 03780
+              </div>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i data-lucide="instagram"></i></div>
+            <div>
+              <div class="info-lbl">Instagram</div>
+              <div class="info-val">
+                <a href="https://www.instagram.com/bdbcatarro" target="_blank" rel="noopener">@bdbcatarro</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-sep"></div>
+
+        <div class="info-block-title" style="font-size:0.88rem;">Horario de atención</div>
+        <div style="margin-top:10px;">
+          <div class="horario-row"><span class="h-dia">Lunes – Viernes</span><span class="h-hora">8:00 – 18:00</span></div>
+          <div class="horario-row"><span class="h-dia">Sábado</span><span class="h-hora">8:00 – 13:00</span></div>
+          <div class="horario-row"><span class="h-dia">Domingo</span><span class="h-hora">Cerrado</span></div>
+        </div>
+
+        <div class="info-sep"></div>
+
+        <a href="https://wa.me/34616475592" target="_blank" rel="noopener" class="c-wa-btn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Escríbenos por WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Google Maps -->
+  <div class="c-map">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3099.0!2d-0.11!3d38.84!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd61b3cebf3abb1b%3A0x5fad462c0f26a4b6!2sC%2F+Metge+Joaquim+Pastor+Alentado+1%2C+03780+Pego%2C+Alicante!5e0!3m2!1ses!2ses!4v1"
+      allowfullscreen loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Ubicación Catarro Construcción en Pego, Alicante">
+    </iframe>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="https://catarroconstruccion.com/wp-content/uploads/2026/01/cropped-logos-new.png"
+               alt="Catarro Construcción" loading="lazy" />
+        </div>
+        <p class="footer-desc">Transportes y Excavaciones Catarro, S.L. — Especialistas en materiales de construcción, excavaciones, contenedores y transporte en la Marina Alta desde hace más de 40 años.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/bdbcatarro" target="_blank" rel="noopener"
+             class="f-social" aria-label="Instagram @bdbcatarro">
+            <i data-lucide="instagram"></i>
+          </a>
+          <a href="https://wa.me/34616475592" target="_blank" rel="noopener"
+             class="f-social" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:rgba(255,255,255,0.7);">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <div class="f-col-title">Servicios</div>
+        <ul class="f-links" role="list">
+          <li><a href="#servicios">Materiales BdB</a></li>
+          <li><a href="#servicios">Contenedores de obra</a></li>
+          <li><a href="#servicios">Excavaciones</a></li>
+          <li><a href="#servicios">Transporte</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="f-col-title">Navegación</div>
+        <ul class="f-links" role="list">
+          <li><a href="#hero">Inicio</a></li>
+          <li><a href="#quienes-somos">Quiénes somos</a></li>
+          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="f-col-title">Contacto</div>
+        <ul class="f-links" role="list">
+          <li><a href="tel:+34966400496">966 400 496</a></li>
+          <li><a href="tel:+34616475592">616 475 592</a></li>
+          <li><a href="mailto:info@catarroconstruccion.com" style="white-space:normal;word-break:break-all;">info@catarroconstruccion.com</a></li>
+          <li><span style="color:rgba(255,255,255,0.28);font-size:.82rem;">Pego (Alicante) 03780</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="f-copy">© 2025 Transportes y Excavaciones Catarro, S.L. Todos los derechos reservados.</p>
+      <div class="f-legal">
+        <a href="#">Aviso legal</a>
+        <a href="#">Privacidad</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== FLOATING: WhatsApp ========== -->
+<a href="https://wa.me/34616475592" target="_blank" rel="noopener"
+   class="wa-float" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- ========== Scroll top ========== -->
+<button class="scroll-top" id="scrollTopBtn" aria-label="Volver arriba">
+  <i data-lucide="chevron-up"></i>
+</button>
+
+<!-- ========== Toast ========== -->
+<div class="toast" id="toast" role="status" aria-live="polite">
+  ✓ Mensaje enviado. ¡Te contactamos pronto!
+</div>
+
+<!-- ========== JAVASCRIPT ========== -->
+<script>
+  /* ---------- Init Lucide ---------- */
+  lucide.createIcons();
+
+  /* ---------- Navbar scroll ---------- */
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  /* ---------- FIX #6: Parallax sin conflicto con CSS ----------
+     No manipulamos scale; solo translateY sobre la imagen de fondo
+  ---------------------------------------------------------------- */
+  const heroBg = document.getElementById('heroBg');
+  let rafPending = false;
+
+  function updateParallax() {
+    const scroll = window.scrollY;
+    if (scroll < window.innerHeight * 1.2) {
+      heroBg.style.transform = 'translateY(' + (scroll * 0.28) + 'px)';
+    }
+    rafPending = false;
+  }
+
+  // Only on non-touch (desktop) to save mobile battery
+  if (!('ontouchstart' in window)) {
+    window.addEventListener('scroll', () => {
+      if (!rafPending) {
+        rafPending = true;
+        requestAnimationFrame(updateParallax);
+      }
+    }, { passive: true });
+  }
+
+  /* ---------- Hamburger ---------- */
+  const hambBtn    = document.getElementById('hambBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hambBtn.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hambBtn.classList.toggle('open', open);
+    hambBtn.setAttribute('aria-expanded', String(open));
+    mobileMenu.setAttribute('aria-hidden', String(!open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+
+  document.querySelectorAll('.m-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hambBtn.classList.remove('open');
+      hambBtn.setAttribute('aria-expanded', 'false');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    });
+  });
+
+  /* ---------- Scroll Reveal ---------- */
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  revealEls.forEach(el => revealObs.observe(el));
+
+  /* Fallback: show all if IntersectionObserver never fires (e.g. print) */
+  setTimeout(() => {
+    revealEls.forEach(el => el.classList.add('visible'));
+  }, 3500);
+
+  /* ---------- Active nav link ---------- */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks  = document.querySelectorAll('.nav-links a');
+
+  const secObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(l => l.classList.toggle('active', l.hash === '#' + e.target.id));
+      }
+    });
+  }, { threshold: 0.35 });
+  sections.forEach(s => secObs.observe(s));
+
+  /* ---------- Scroll to top ---------- */
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll', () => {
+    scrollTopBtn.classList.toggle('visible', window.scrollY > 380);
+  }, { passive: true });
+  scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* ---------- Form ---------- */
+  const form  = document.getElementById('contactForm');
+  const toast = document.getElementById('toast');
+
+  function showToast(msg, ok = true) {
+    toast.textContent = msg;
+    toast.style.borderLeftColor = ok ? 'var(--naranja)' : '#e05555';
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 4000);
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nombre   = form.nombre.value.trim();
+    const telefono = form.telefono.value.trim();
+    const mensaje  = form.mensaje.value.trim();
+
+    if (!nombre || !telefono || !mensaje) {
+      showToast('⚠ Rellena los campos obligatorios (*)', false);
+      return;
+    }
+
+    const btn = form.querySelector('[type="submit"]');
+    btn.disabled = true;
+    btn.innerHTML = '<i data-lucide="loader-2" style="width:15px;height:15px;animation:spin 1s linear infinite;"></i> Enviando…';
+    lucide.createIcons();
+
+    setTimeout(() => {
+      form.reset();
+      btn.disabled = false;
+      btn.innerHTML = '<i data-lucide="send" style="width:15px;height:15px;"></i> Enviar mensaje';
+      lucide.createIcons();
+      showToast('✓ Mensaje enviado. ¡Te contactamos pronto!');
+    }, 1400);
+  });
+
+  /* Spinner keyframe */
+  const spinStyle = document.createElement('style');
+  spinStyle.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
+  document.head.appendChild(spinStyle);
+</script>
+
+</body>
+</html>
